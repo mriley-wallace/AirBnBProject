@@ -1,0 +1,17 @@
+district name
+number of neighbourhoods
+---------------
+neighbourhood name
+number of properties
+---------------
+property 1 ID
+property 1 name
+property 1 host id
+property 1 host name
+property 1 number of properties available
+latitude
+longitude
+room type
+price
+minimum nights
+days available (out of 365)
