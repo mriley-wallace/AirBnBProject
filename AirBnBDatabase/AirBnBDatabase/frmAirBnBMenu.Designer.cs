@@ -35,11 +35,20 @@
             this.btnRead = new System.Windows.Forms.Button();
             this.txtDistrict = new System.Windows.Forms.TextBox();
             this.txtNBHood = new System.Windows.Forms.TextBox();
-            this.txtProp = new System.Windows.Forms.TextBox();
             this.lstDist = new System.Windows.Forms.ListBox();
             this.lstHood = new System.Windows.Forms.ListBox();
             this.dgdProp = new System.Windows.Forms.DataGridView();
             this.getFile = new System.Windows.Forms.OpenFileDialog();
+            this.btnDistEdit = new System.Windows.Forms.Button();
+            this.btnDistDelete = new System.Windows.Forms.Button();
+            this.btnDistAdd = new System.Windows.Forms.Button();
+            this.btnDistConfirm = new System.Windows.Forms.Button();
+            this.btnDistCancel = new System.Windows.Forms.Button();
+            this.btnHoodCancel = new System.Windows.Forms.Button();
+            this.btnHoodConfirm = new System.Windows.Forms.Button();
+            this.btnHoodAdd = new System.Windows.Forms.Button();
+            this.btnHoodDelete = new System.Windows.Forms.Button();
+            this.btnHoodEdit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -102,6 +111,7 @@
             this.txtDistrict.Name = "txtDistrict";
             this.txtDistrict.Size = new System.Drawing.Size(409, 20);
             this.txtDistrict.TabIndex = 8;
+            this.txtDistrict.TextChanged += new System.EventHandler(this.txtDistrict_TextChanged);
             // 
             // txtNBHood
             // 
@@ -109,13 +119,6 @@
             this.txtNBHood.Name = "txtNBHood";
             this.txtNBHood.Size = new System.Drawing.Size(409, 20);
             this.txtNBHood.TabIndex = 9;
-            // 
-            // txtProp
-            // 
-            this.txtProp.Location = new System.Drawing.Point(785, 376);
-            this.txtProp.Name = "txtProp";
-            this.txtProp.Size = new System.Drawing.Size(409, 20);
-            this.txtProp.TabIndex = 10;
             // 
             // lstDist
             // 
@@ -147,13 +150,122 @@
             // 
             this.getFile.FileName = "getFile";
             // 
+            // btnDistEdit
+            // 
+            this.btnDistEdit.Location = new System.Drawing.Point(936, 113);
+            this.btnDistEdit.Name = "btnDistEdit";
+            this.btnDistEdit.Size = new System.Drawing.Size(109, 40);
+            this.btnDistEdit.TabIndex = 15;
+            this.btnDistEdit.Text = "Edit";
+            this.btnDistEdit.UseVisualStyleBackColor = true;
+            this.btnDistEdit.Click += new System.EventHandler(this.btnDistEdit_Click);
+            // 
+            // btnDistDelete
+            // 
+            this.btnDistDelete.Location = new System.Drawing.Point(1051, 113);
+            this.btnDistDelete.Name = "btnDistDelete";
+            this.btnDistDelete.Size = new System.Drawing.Size(109, 40);
+            this.btnDistDelete.TabIndex = 16;
+            this.btnDistDelete.Text = "Delete";
+            this.btnDistDelete.UseVisualStyleBackColor = true;
+            this.btnDistDelete.Click += new System.EventHandler(this.btnDistDelete_Click);
+            // 
+            // btnDistAdd
+            // 
+            this.btnDistAdd.Location = new System.Drawing.Point(821, 113);
+            this.btnDistAdd.Name = "btnDistAdd";
+            this.btnDistAdd.Size = new System.Drawing.Size(109, 40);
+            this.btnDistAdd.TabIndex = 17;
+            this.btnDistAdd.Text = "Add";
+            this.btnDistAdd.UseVisualStyleBackColor = true;
+            this.btnDistAdd.Click += new System.EventHandler(this.btnDistAdd_Click);
+            // 
+            // btnDistConfirm
+            // 
+            this.btnDistConfirm.Location = new System.Drawing.Point(821, 159);
+            this.btnDistConfirm.Name = "btnDistConfirm";
+            this.btnDistConfirm.Size = new System.Drawing.Size(109, 40);
+            this.btnDistConfirm.TabIndex = 18;
+            this.btnDistConfirm.Text = "Confirm";
+            this.btnDistConfirm.UseVisualStyleBackColor = true;
+            this.btnDistConfirm.Click += new System.EventHandler(this.btnDistConfirm_Click_1);
+            // 
+            // btnDistCancel
+            // 
+            this.btnDistCancel.Location = new System.Drawing.Point(1051, 159);
+            this.btnDistCancel.Name = "btnDistCancel";
+            this.btnDistCancel.Size = new System.Drawing.Size(109, 40);
+            this.btnDistCancel.TabIndex = 19;
+            this.btnDistCancel.Text = "Cancel";
+            this.btnDistCancel.UseVisualStyleBackColor = true;
+            this.btnDistCancel.Click += new System.EventHandler(this.btnDistCancel_Click_1);
+            // 
+            // btnHoodCancel
+            // 
+            this.btnHoodCancel.Location = new System.Drawing.Point(1051, 282);
+            this.btnHoodCancel.Name = "btnHoodCancel";
+            this.btnHoodCancel.Size = new System.Drawing.Size(109, 40);
+            this.btnHoodCancel.TabIndex = 24;
+            this.btnHoodCancel.Text = "Cancel";
+            this.btnHoodCancel.UseVisualStyleBackColor = true;
+            this.btnHoodCancel.Click += new System.EventHandler(this.btnHoodCancel_Click);
+            // 
+            // btnHoodConfirm
+            // 
+            this.btnHoodConfirm.Location = new System.Drawing.Point(821, 282);
+            this.btnHoodConfirm.Name = "btnHoodConfirm";
+            this.btnHoodConfirm.Size = new System.Drawing.Size(109, 40);
+            this.btnHoodConfirm.TabIndex = 23;
+            this.btnHoodConfirm.Text = "Confirm";
+            this.btnHoodConfirm.UseVisualStyleBackColor = true;
+            this.btnHoodConfirm.Click += new System.EventHandler(this.btnHoodConfirm_Click);
+            // 
+            // btnHoodAdd
+            // 
+            this.btnHoodAdd.Location = new System.Drawing.Point(821, 236);
+            this.btnHoodAdd.Name = "btnHoodAdd";
+            this.btnHoodAdd.Size = new System.Drawing.Size(109, 40);
+            this.btnHoodAdd.TabIndex = 22;
+            this.btnHoodAdd.Text = "Add";
+            this.btnHoodAdd.UseVisualStyleBackColor = true;
+            this.btnHoodAdd.Click += new System.EventHandler(this.btnHoodAdd_Click);
+            // 
+            // btnHoodDelete
+            // 
+            this.btnHoodDelete.Location = new System.Drawing.Point(1051, 236);
+            this.btnHoodDelete.Name = "btnHoodDelete";
+            this.btnHoodDelete.Size = new System.Drawing.Size(109, 40);
+            this.btnHoodDelete.TabIndex = 21;
+            this.btnHoodDelete.Text = "Delete";
+            this.btnHoodDelete.UseVisualStyleBackColor = true;
+            this.btnHoodDelete.Click += new System.EventHandler(this.btnHoodDelete_Click);
+            // 
+            // btnHoodEdit
+            // 
+            this.btnHoodEdit.Location = new System.Drawing.Point(936, 236);
+            this.btnHoodEdit.Name = "btnHoodEdit";
+            this.btnHoodEdit.Size = new System.Drawing.Size(109, 40);
+            this.btnHoodEdit.TabIndex = 20;
+            this.btnHoodEdit.Text = "Edit";
+            this.btnHoodEdit.UseVisualStyleBackColor = true;
+            this.btnHoodEdit.Click += new System.EventHandler(this.btnHoodEdit_Click);
+            // 
             // frmAirBnBMenu
             // 
             this.ClientSize = new System.Drawing.Size(1847, 1006);
+            this.Controls.Add(this.btnHoodCancel);
+            this.Controls.Add(this.btnHoodConfirm);
+            this.Controls.Add(this.btnHoodAdd);
+            this.Controls.Add(this.btnHoodDelete);
+            this.Controls.Add(this.btnHoodEdit);
+            this.Controls.Add(this.btnDistCancel);
+            this.Controls.Add(this.btnDistConfirm);
+            this.Controls.Add(this.btnDistAdd);
+            this.Controls.Add(this.btnDistDelete);
+            this.Controls.Add(this.btnDistEdit);
             this.Controls.Add(this.dgdProp);
             this.Controls.Add(this.lstHood);
             this.Controls.Add(this.lstDist);
-            this.Controls.Add(this.txtProp);
             this.Controls.Add(this.txtNBHood);
             this.Controls.Add(this.txtDistrict);
             this.Controls.Add(this.btnRead);
@@ -181,11 +293,20 @@
         private System.Windows.Forms.Button btnRead;
         private System.Windows.Forms.TextBox txtDistrict;
         private System.Windows.Forms.TextBox txtNBHood;
-        private System.Windows.Forms.TextBox txtProp;
         private System.Windows.Forms.ListBox lstDist;
         private System.Windows.Forms.ListBox lstHood;
         private System.Windows.Forms.DataGridView dgdProp;
         private System.Windows.Forms.OpenFileDialog getFile;
+        private System.Windows.Forms.Button btnDistEdit;
+        private System.Windows.Forms.Button btnDistDelete;
+        private System.Windows.Forms.Button btnDistAdd;
+        private System.Windows.Forms.Button btnDistConfirm;
+        private System.Windows.Forms.Button btnDistCancel;
+        private System.Windows.Forms.Button btnHoodCancel;
+        private System.Windows.Forms.Button btnHoodConfirm;
+        private System.Windows.Forms.Button btnHoodAdd;
+        private System.Windows.Forms.Button btnHoodDelete;
+        private System.Windows.Forms.Button btnHoodEdit;
     }
 }
 

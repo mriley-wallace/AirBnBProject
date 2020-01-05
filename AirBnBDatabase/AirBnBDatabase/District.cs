@@ -77,6 +77,9 @@ namespace AirBnBDatabase
             distAllHood = theAllHood;
         }
 
-
+        public void setDistName(string inDistName)
+        {
+            districtName = inDistName;
+        }
     }
 }

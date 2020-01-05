@@ -16,6 +16,20 @@ namespace AirBnBDatabase
         public frmAirBnBMenu()
         {
             InitializeComponent();
+            btnDistConfirm.Visible = false;
+            btnDistCancel.Visible = false;
+            btnHoodConfirm.Visible = false;
+            btnHoodCancel.Visible = false;
+
+            btnDistAdd.Visible = false;
+            btnDistEdit.Visible = false;
+            btnDistDelete.Visible = false;
+            txtDistrict.Visible = false;
+
+            btnHoodAdd.Visible = false;
+            btnHoodEdit.Visible = false;
+            btnHoodDelete.Visible = false;
+            txtNBHood.Visible = false;
         }
 
 
@@ -103,18 +117,26 @@ namespace AirBnBDatabase
             lstDist.Items.Clear();
             for (int i = 0; i < Data.AllDist.Length; i++)
             {
-                lstDist.Items.Add(Data.AllDist[i].getInDistName() + " " + "has a total of " + Data.AllDist[i].getNumHood() + " " + "neighbourhoods.");
+                lstDist.Items.Add(Data.AllDist[i].getInDistName());
             }
 
         }
 
         private void lstDist_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(lstDist.SelectedIndex >= 0)
+            {
+                btnDistAdd.Visible = true;
+                btnDistEdit.Visible = true;
+                btnDistDelete.Visible = true;
+                txtDistrict.Visible = true;
+            }
+
             lstHood.Items.Clear();
 
             for (int i = 0; i < Data.AllDist[lstDist.SelectedIndex].getDistAllHood().Length; i++)
             {
-                lstHood.Items.Add(Data.AllDist[lstDist.SelectedIndex].getDistAllHood()[i].getNHoodName() + "has a total of " +  Data.AllDist[lstDist.SelectedIndex].getDistAllHood()[i].getNumProp() + " " + "properties.");
+                lstHood.Items.Add(Data.AllDist[lstDist.SelectedIndex].getDistAllHood()[i].getNHoodName());
             }
         }
 
@@ -135,7 +157,13 @@ namespace AirBnBDatabase
             dgdProp.Columns.Add("colMinNight", "Minimum Nights");
             dgdProp.Columns.Add("colAvailable", "Days Available (Out of 365)");
 
-
+            if (lstHood.SelectedIndex >= 0)
+            {
+                btnHoodAdd.Visible = true;
+                btnHoodEdit.Visible = true;
+                btnHoodDelete.Visible = true;
+                txtNBHood.Visible = true;
+            }
 
             for (int i = 0; i < Data.AllDist[lstDist.SelectedIndex].getDistAllHood()[lstHood.SelectedIndex].getHoodAllProp().Length; i++)
             {
@@ -160,18 +188,153 @@ namespace AirBnBDatabase
         {
 
         }
+
+        private string editItem;
+        private int replaceIndex;
+
+
+        private void btnDistEdit_Click(object sender, EventArgs e)
+        {
+            
+            if (lstDist.SelectedIndex >=0 && lstDist.SelectedIndex < lstDist.Items.Count)
+            {
+                btnDistAdd.Visible = false;
+                btnDistConfirm.Visible = true;
+                btnDistDelete.Visible = false;
+                btnDistEdit.Visible = false;
+                btnDistCancel.Visible = true;
+                editItem = lstDist.Items[lstDist.SelectedIndex].ToString();
+                replaceIndex = lstDist.SelectedIndex;
+                txtDistrict.Text = editItem;
+
+                btnHoodAdd.Visible = false;
+                btnHoodConfirm.Visible = false;
+                btnHoodDelete.Visible = false;
+                btnHoodEdit.Visible = false;
+                btnHoodCancel.Visible = false;
+                txtNBHood.Visible = false;
+
+
+            } else
+            {
+                MessageBox.Show("Please select an Item from the District List!", "No Selection", MessageBoxButtons.OK);
+            }
+        }
+
+        private void txtDistrict_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void btnDistConfirm_Click_1(object sender, EventArgs e)
+        {
+            editItem = txtDistrict.Text;
+            District dist = Data.AllDist[replaceIndex];
+            dist.setDistName(editItem);
+            lstDist.Items.Clear();
+            txtDistrict.Clear();
+
+            foreach (District newVersion in Data.AllDist)
+            {
+                lstDist.Items.Add(newVersion.getInDistName());
+            }
+            btnDistAdd.Visible = true;
+            btnDistConfirm.Visible = false;
+            btnDistDelete.Visible = true;
+            btnDistEdit.Visible = true;
+            btnDistCancel.Visible = false;
+        }
+
+        private void btnDistCancel_Click_1(object sender, EventArgs e)
+        {
+            txtDistrict.Clear();
+            btnDistAdd.Visible = false;
+            btnDistConfirm.Visible = false;
+            btnDistDelete.Visible = false;
+            btnDistEdit.Visible = false;
+            btnDistCancel.Visible = false;
+            txtDistrict.Visible = false;
+            
+        }
+
+        private void btnDistAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDistDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnHoodAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnHoodEdit_Click(object sender, EventArgs e)
+        {
+           
+            if (lstHood.SelectedIndex >= 0 && lstHood.SelectedIndex < lstHood.Items.Count)
+            {
+                btnHoodAdd.Visible = false;
+                btnHoodConfirm.Visible = true;
+                btnHoodDelete.Visible = false;
+                btnHoodEdit.Visible = false;
+                btnHoodCancel.Visible = true;
+                editItem = lstHood.Items[lstHood.SelectedIndex].ToString();
+                replaceIndex = lstHood.SelectedIndex;
+                txtNBHood.Text = editItem;
+                btnDistAdd.Visible = false;
+                btnDistConfirm.Visible = false;
+                btnDistDelete.Visible = false;
+                btnDistEdit.Visible = false;
+                btnDistCancel.Visible = false;
+                txtDistrict.Visible = false;
+
+
+            }
+            else
+            {
+                MessageBox.Show("Please select an Item from the Neighbourhood List!", "No Selection", MessageBoxButtons.OK);
+            }
+        }
+
+        private void btnHoodDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnHoodConfirm_Click(object sender, EventArgs e)
+        {
+            editItem = txtNBHood.Text;
+            Neighbourhood newhood = Data.AllDist[lstDist.SelectedIndex].getDistAllHood()[replaceIndex];
+            newhood.setNHoodName(editItem);
+            lstHood.Items.Clear();
+            txtNBHood.Clear();
+
+            foreach (Neighbourhood newHoods in Data.AllDist[lstDist.SelectedIndex].getDistAllHood())
+            {
+                lstHood.Items.Add(newHoods.getNHoodName());
+            }
+            btnHoodAdd.Visible = true;
+            btnHoodConfirm.Visible = false;
+            btnHoodDelete.Visible = true;
+            btnHoodEdit.Visible = true;
+            btnHoodCancel.Visible = false;
+        }
+
+        private void btnHoodCancel_Click(object sender, EventArgs e)
+        {
+            txtNBHood.Clear();
+            btnHoodAdd.Visible = false;
+            btnHoodConfirm.Visible = false;
+            btnHoodDelete.Visible = false;
+            btnHoodEdit.Visible = false;
+            btnHoodCancel.Visible = false;
+            txtNBHood.Visible = false;
+        }
     }
 }
 
 
-                //for (int i = 0; i < Data.AllHood.Length; i++)
-                //{
-                //    for (int j = 0; j < Data.AllHood[i].getHoodAllProp().Length; j++)
-                //    {
-                //        dgdProp.Rows.Add(Data.AllHood[i].getHoodAllProp()[j].getPropID(), Data.AllHood[i].getHoodAllProp()[j].getPropName(), Data.AllHood[i].getHoodAllProp()[j].getHostID(),
-                //            Data.AllHood[i].getHoodAllProp()[j].getHostName(), Data.AllHood[i].getHoodAllProp()[j].getNumListProp(), Data.AllHood[i].getHoodAllProp()[j].getLattitude(),
-                //            Data.AllHood[i].getHoodAllProp()[j].getLongitude(), Data.AllHood[i].getHoodAllProp()[j].getRoomType(), Data.AllHood[i].getHoodAllProp()[j].getPrice(), Data.AllHood[i].getHoodAllProp()[j].getMinNight(),
-                //            Data.AllHood[i].getHoodAllProp()[j].getPropAvailable());
-                //    }
-
-//}
+                
