@@ -21,3 +21,13 @@ C:\Users\mriley-wallace\Downloads\AirBnBDatabaseProject\AirBnBDatabaseProject\Ai
 C:\Users\mriley-wallace\Downloads\AirBnBDatabaseProject\AirBnBDatabaseProject\AirBnBDatabaseProject\AirBnBDatabase\AirBnBDatabase\obj\Debug\AirBnBDatabase.csproj.CoreCompileInputs.cache
 C:\Users\mriley-wallace\Downloads\AirBnBDatabaseProject\AirBnBDatabaseProject\AirBnBDatabaseProject\AirBnBDatabase\AirBnBDatabase\obj\Debug\AirBnBDatabase.exe
 C:\Users\mriley-wallace\Downloads\AirBnBDatabaseProject\AirBnBDatabaseProject\AirBnBDatabaseProject\AirBnBDatabase\AirBnBDatabase\obj\Debug\AirBnBDatabase.pdb
+C:\Users\midge\Documents\GitHub\AirBnBProject\AirBnBDatabase\AirBnBDatabase\bin\Debug\AirBnBDatabase.exe.config
+C:\Users\midge\Documents\GitHub\AirBnBProject\AirBnBDatabase\AirBnBDatabase\bin\Debug\AirBnBDatabase.exe
+C:\Users\midge\Documents\GitHub\AirBnBProject\AirBnBDatabase\AirBnBDatabase\bin\Debug\AirBnBDatabase.pdb
+C:\Users\midge\Documents\GitHub\AirBnBProject\AirBnBDatabase\AirBnBDatabase\obj\Debug\AirBnBDatabase.csprojAssemblyReference.cache
+C:\Users\midge\Documents\GitHub\AirBnBProject\AirBnBDatabase\AirBnBDatabase\obj\Debug\AirBnBDatabase.frmAirBnBMenu.resources
+C:\Users\midge\Documents\GitHub\AirBnBProject\AirBnBDatabase\AirBnBDatabase\obj\Debug\AirBnBDatabase.Properties.Resources.resources
+C:\Users\midge\Documents\GitHub\AirBnBProject\AirBnBDatabase\AirBnBDatabase\obj\Debug\AirBnBDatabase.csproj.GenerateResource.cache
+C:\Users\midge\Documents\GitHub\AirBnBProject\AirBnBDatabase\AirBnBDatabase\obj\Debug\AirBnBDatabase.csproj.CoreCompileInputs.cache
+C:\Users\midge\Documents\GitHub\AirBnBProject\AirBnBDatabase\AirBnBDatabase\obj\Debug\AirBnBDatabase.exe
+C:\Users\midge\Documents\GitHub\AirBnBProject\AirBnBDatabase\AirBnBDatabase\obj\Debug\AirBnBDatabase.pdb

@@ -23,6 +23,14 @@ namespace AirBnBDatabase
            
         }
 
+        public District(string inDistName, int inNumHood)
+        {
+            districtName = inDistName;
+            numHood = inNumHood;
+            
+
+        }
+
 
         // Getters //
 

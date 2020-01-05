@@ -39,6 +39,7 @@
             this.lstDist = new System.Windows.Forms.ListBox();
             this.lstHood = new System.Windows.Forms.ListBox();
             this.dgdProp = new System.Windows.Forms.DataGridView();
+            this.getFile = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -53,6 +54,7 @@
             this.pictureBox4.Size = new System.Drawing.Size(158, 55);
             this.pictureBox4.TabIndex = 0;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // pictureBox5
             // 
@@ -90,7 +92,7 @@
             this.btnRead.Name = "btnRead";
             this.btnRead.Size = new System.Drawing.Size(189, 51);
             this.btnRead.TabIndex = 7;
-            this.btnRead.Text = "Read In Data";
+            this.btnRead.Text = "Select Data File";
             this.btnRead.UseVisualStyleBackColor = true;
             this.btnRead.Click += new System.EventHandler(this.BtnRead_Click);
             // 
@@ -122,6 +124,7 @@
             this.lstDist.Name = "lstDist";
             this.lstDist.Size = new System.Drawing.Size(270, 108);
             this.lstDist.TabIndex = 11;
+            this.lstDist.SelectedIndexChanged += new System.EventHandler(this.lstDist_SelectedIndexChanged);
             // 
             // lstHood
             // 
@@ -130,6 +133,7 @@
             this.lstHood.Name = "lstHood";
             this.lstHood.Size = new System.Drawing.Size(270, 186);
             this.lstHood.TabIndex = 12;
+            this.lstHood.SelectedIndexChanged += new System.EventHandler(this.lstHood_SelectedIndexChanged);
             // 
             // dgdProp
             // 
@@ -138,6 +142,10 @@
             this.dgdProp.Name = "dgdProp";
             this.dgdProp.Size = new System.Drawing.Size(1601, 483);
             this.dgdProp.TabIndex = 13;
+            // 
+            // getFile
+            // 
+            this.getFile.FileName = "getFile";
             // 
             // frmAirBnBMenu
             // 
@@ -177,6 +185,7 @@
         private System.Windows.Forms.ListBox lstDist;
         private System.Windows.Forms.ListBox lstHood;
         private System.Windows.Forms.DataGridView dgdProp;
+        private System.Windows.Forms.OpenFileDialog getFile;
     }
 }
 
