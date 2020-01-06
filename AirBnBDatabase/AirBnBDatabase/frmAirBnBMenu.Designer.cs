@@ -40,15 +40,21 @@
             this.dgdProp = new System.Windows.Forms.DataGridView();
             this.getFile = new System.Windows.Forms.OpenFileDialog();
             this.btnDistEdit = new System.Windows.Forms.Button();
-            this.btnDistDelete = new System.Windows.Forms.Button();
             this.btnDistAdd = new System.Windows.Forms.Button();
             this.btnDistConfirm = new System.Windows.Forms.Button();
             this.btnDistCancel = new System.Windows.Forms.Button();
             this.btnHoodCancel = new System.Windows.Forms.Button();
             this.btnHoodConfirm = new System.Windows.Forms.Button();
             this.btnHoodAdd = new System.Windows.Forms.Button();
-            this.btnHoodDelete = new System.Windows.Forms.Button();
             this.btnHoodEdit = new System.Windows.Forms.Button();
+            this.btnAddDisConfirm = new System.Windows.Forms.Button();
+            this.btnAddDisCancel = new System.Windows.Forms.Button();
+            this.btnAddHoodConfirm = new System.Windows.Forms.Button();
+            this.btnAddHoodCancel = new System.Windows.Forms.Button();
+            this.txtAddName = new System.Windows.Forms.TextBox();
+            this.txtAddNum = new System.Windows.Forms.TextBox();
+            this.lblAddName = new System.Windows.Forms.Label();
+            this.lblAddNumber = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -152,23 +158,13 @@
             // 
             // btnDistEdit
             // 
-            this.btnDistEdit.Location = new System.Drawing.Point(936, 113);
+            this.btnDistEdit.Location = new System.Drawing.Point(1051, 113);
             this.btnDistEdit.Name = "btnDistEdit";
             this.btnDistEdit.Size = new System.Drawing.Size(109, 40);
             this.btnDistEdit.TabIndex = 15;
             this.btnDistEdit.Text = "Edit";
             this.btnDistEdit.UseVisualStyleBackColor = true;
             this.btnDistEdit.Click += new System.EventHandler(this.btnDistEdit_Click);
-            // 
-            // btnDistDelete
-            // 
-            this.btnDistDelete.Location = new System.Drawing.Point(1051, 113);
-            this.btnDistDelete.Name = "btnDistDelete";
-            this.btnDistDelete.Size = new System.Drawing.Size(109, 40);
-            this.btnDistDelete.TabIndex = 16;
-            this.btnDistDelete.Text = "Delete";
-            this.btnDistDelete.UseVisualStyleBackColor = true;
-            this.btnDistDelete.Click += new System.EventHandler(this.btnDistDelete_Click);
             // 
             // btnDistAdd
             // 
@@ -182,7 +178,7 @@
             // 
             // btnDistConfirm
             // 
-            this.btnDistConfirm.Location = new System.Drawing.Point(821, 159);
+            this.btnDistConfirm.Location = new System.Drawing.Point(821, 164);
             this.btnDistConfirm.Name = "btnDistConfirm";
             this.btnDistConfirm.Size = new System.Drawing.Size(109, 40);
             this.btnDistConfirm.TabIndex = 18;
@@ -230,19 +226,9 @@
             this.btnHoodAdd.UseVisualStyleBackColor = true;
             this.btnHoodAdd.Click += new System.EventHandler(this.btnHoodAdd_Click);
             // 
-            // btnHoodDelete
-            // 
-            this.btnHoodDelete.Location = new System.Drawing.Point(1051, 236);
-            this.btnHoodDelete.Name = "btnHoodDelete";
-            this.btnHoodDelete.Size = new System.Drawing.Size(109, 40);
-            this.btnHoodDelete.TabIndex = 21;
-            this.btnHoodDelete.Text = "Delete";
-            this.btnHoodDelete.UseVisualStyleBackColor = true;
-            this.btnHoodDelete.Click += new System.EventHandler(this.btnHoodDelete_Click);
-            // 
             // btnHoodEdit
             // 
-            this.btnHoodEdit.Location = new System.Drawing.Point(936, 236);
+            this.btnHoodEdit.Location = new System.Drawing.Point(1051, 236);
             this.btnHoodEdit.Name = "btnHoodEdit";
             this.btnHoodEdit.Size = new System.Drawing.Size(109, 40);
             this.btnHoodEdit.TabIndex = 20;
@@ -250,18 +236,96 @@
             this.btnHoodEdit.UseVisualStyleBackColor = true;
             this.btnHoodEdit.Click += new System.EventHandler(this.btnHoodEdit_Click);
             // 
+            // btnAddDisConfirm
+            // 
+            this.btnAddDisConfirm.Location = new System.Drawing.Point(1378, 210);
+            this.btnAddDisConfirm.Name = "btnAddDisConfirm";
+            this.btnAddDisConfirm.Size = new System.Drawing.Size(109, 40);
+            this.btnAddDisConfirm.TabIndex = 25;
+            this.btnAddDisConfirm.Text = "Confirm";
+            this.btnAddDisConfirm.UseVisualStyleBackColor = true;
+            this.btnAddDisConfirm.Click += new System.EventHandler(this.BtnAddDisConfirm_Click);
+            // 
+            // btnAddDisCancel
+            // 
+            this.btnAddDisCancel.Location = new System.Drawing.Point(1556, 210);
+            this.btnAddDisCancel.Name = "btnAddDisCancel";
+            this.btnAddDisCancel.Size = new System.Drawing.Size(109, 40);
+            this.btnAddDisCancel.TabIndex = 26;
+            this.btnAddDisCancel.Text = "Cancel";
+            this.btnAddDisCancel.UseVisualStyleBackColor = true;
+            this.btnAddDisCancel.Click += new System.EventHandler(this.BtnAddDisCancel_Click);
+            // 
+            // btnAddHoodConfirm
+            // 
+            this.btnAddHoodConfirm.Location = new System.Drawing.Point(1376, 256);
+            this.btnAddHoodConfirm.Name = "btnAddHoodConfirm";
+            this.btnAddHoodConfirm.Size = new System.Drawing.Size(109, 40);
+            this.btnAddHoodConfirm.TabIndex = 27;
+            this.btnAddHoodConfirm.Text = "Confirm";
+            this.btnAddHoodConfirm.UseVisualStyleBackColor = true;
+            this.btnAddHoodConfirm.Click += new System.EventHandler(this.BtnAddHoodConfirm_Click);
+            // 
+            // btnAddHoodCancel
+            // 
+            this.btnAddHoodCancel.Location = new System.Drawing.Point(1556, 256);
+            this.btnAddHoodCancel.Name = "btnAddHoodCancel";
+            this.btnAddHoodCancel.Size = new System.Drawing.Size(109, 40);
+            this.btnAddHoodCancel.TabIndex = 28;
+            this.btnAddHoodCancel.Text = "Cancel";
+            this.btnAddHoodCancel.UseVisualStyleBackColor = true;
+            this.btnAddHoodCancel.Click += new System.EventHandler(this.BtnAddHoodCancel_Click);
+            // 
+            // txtAddName
+            // 
+            this.txtAddName.Location = new System.Drawing.Point(1378, 86);
+            this.txtAddName.Name = "txtAddName";
+            this.txtAddName.Size = new System.Drawing.Size(311, 20);
+            this.txtAddName.TabIndex = 29;
+            // 
+            // txtAddNum
+            // 
+            this.txtAddNum.Location = new System.Drawing.Point(1376, 125);
+            this.txtAddNum.Name = "txtAddNum";
+            this.txtAddNum.Size = new System.Drawing.Size(312, 20);
+            this.txtAddNum.TabIndex = 30;
+            // 
+            // lblAddName
+            // 
+            this.lblAddName.AutoSize = true;
+            this.lblAddName.Location = new System.Drawing.Point(1166, 89);
+            this.lblAddName.Name = "lblAddName";
+            this.lblAddName.Size = new System.Drawing.Size(64, 13);
+            this.lblAddName.TabIndex = 31;
+            this.lblAddName.Text = "lblAddName";
+            // 
+            // lblAddNumber
+            // 
+            this.lblAddNumber.AutoSize = true;
+            this.lblAddNumber.Location = new System.Drawing.Point(1166, 132);
+            this.lblAddNumber.Name = "lblAddNumber";
+            this.lblAddNumber.Size = new System.Drawing.Size(73, 13);
+            this.lblAddNumber.TabIndex = 32;
+            this.lblAddNumber.Text = "lblAddNumber";
+            // 
             // frmAirBnBMenu
             // 
             this.ClientSize = new System.Drawing.Size(1847, 1006);
+            this.Controls.Add(this.lblAddNumber);
+            this.Controls.Add(this.lblAddName);
+            this.Controls.Add(this.txtAddNum);
+            this.Controls.Add(this.txtAddName);
+            this.Controls.Add(this.btnAddHoodCancel);
+            this.Controls.Add(this.btnAddHoodConfirm);
+            this.Controls.Add(this.btnAddDisCancel);
+            this.Controls.Add(this.btnAddDisConfirm);
             this.Controls.Add(this.btnHoodCancel);
             this.Controls.Add(this.btnHoodConfirm);
             this.Controls.Add(this.btnHoodAdd);
-            this.Controls.Add(this.btnHoodDelete);
             this.Controls.Add(this.btnHoodEdit);
             this.Controls.Add(this.btnDistCancel);
             this.Controls.Add(this.btnDistConfirm);
             this.Controls.Add(this.btnDistAdd);
-            this.Controls.Add(this.btnDistDelete);
             this.Controls.Add(this.btnDistEdit);
             this.Controls.Add(this.dgdProp);
             this.Controls.Add(this.lstHood);
@@ -298,15 +362,21 @@
         private System.Windows.Forms.DataGridView dgdProp;
         private System.Windows.Forms.OpenFileDialog getFile;
         private System.Windows.Forms.Button btnDistEdit;
-        private System.Windows.Forms.Button btnDistDelete;
         private System.Windows.Forms.Button btnDistAdd;
         private System.Windows.Forms.Button btnDistConfirm;
         private System.Windows.Forms.Button btnDistCancel;
         private System.Windows.Forms.Button btnHoodCancel;
         private System.Windows.Forms.Button btnHoodConfirm;
         private System.Windows.Forms.Button btnHoodAdd;
-        private System.Windows.Forms.Button btnHoodDelete;
         private System.Windows.Forms.Button btnHoodEdit;
+        private System.Windows.Forms.Button btnAddDisConfirm;
+        private System.Windows.Forms.Button btnAddDisCancel;
+        private System.Windows.Forms.Button btnAddHoodConfirm;
+        private System.Windows.Forms.Button btnAddHoodCancel;
+        private System.Windows.Forms.TextBox txtAddName;
+        private System.Windows.Forms.TextBox txtAddNum;
+        private System.Windows.Forms.Label lblAddName;
+        private System.Windows.Forms.Label lblAddNumber;
     }
 }
 

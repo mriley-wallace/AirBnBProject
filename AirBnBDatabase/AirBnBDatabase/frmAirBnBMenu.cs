@@ -16,6 +16,8 @@ namespace AirBnBDatabase
         public frmAirBnBMenu()
         {
             InitializeComponent();
+
+            //Layout the form for start use//
             btnDistConfirm.Visible = false;
             btnDistCancel.Visible = false;
             btnHoodConfirm.Visible = false;
@@ -23,13 +25,22 @@ namespace AirBnBDatabase
 
             btnDistAdd.Visible = false;
             btnDistEdit.Visible = false;
-            btnDistDelete.Visible = false;
             txtDistrict.Visible = false;
 
             btnHoodAdd.Visible = false;
             btnHoodEdit.Visible = false;
-            btnHoodDelete.Visible = false;
             txtNBHood.Visible = false;
+
+            btnAddDisCancel.Visible = false;
+            btnAddDisConfirm.Visible = false;
+
+            btnAddHoodCancel.Visible = false;
+            btnAddHoodConfirm.Visible = false;
+
+            lblAddName.Visible = false;
+            lblAddNumber.Visible = false;
+            txtAddName.Visible = false;
+            txtAddNum.Visible = false;
         }
 
 
@@ -43,6 +54,7 @@ namespace AirBnBDatabase
 
         private void FrmAirBnBMenu_Load_1(object sender, EventArgs e)
         {
+            //Force the application to run in maximised mode irrelevant to monitor size//
             WindowState = FormWindowState.Maximized;
         }
 
@@ -50,6 +62,8 @@ namespace AirBnBDatabase
 
         private void BtnRead_Click(object sender, EventArgs e)
         {
+
+            //Read in a .txt file from the browser, input that filename into string. use string variable for streamreader//
             DialogResult fileResult = getFile.ShowDialog();
             string fileName = getFile.FileName;
 
@@ -113,7 +127,7 @@ namespace AirBnBDatabase
                 AirBnBReader.Close();
             }
 
-
+            //Show the District items in the listbox for District//
             lstDist.Items.Clear();
             for (int i = 0; i < Data.AllDist.Length; i++)
             {
@@ -124,12 +138,13 @@ namespace AirBnBDatabase
 
         private void lstDist_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(lstDist.SelectedIndex >= 0)
+            // Whenever the user selects a different entity inside the district listbox, use that selectedindex integer to find the correct District[] array and grab the neighbourhoods from that array and display them in the listbox for neighbourhoods//
+
+            if(lstDist.SelectedIndex >= 0 && lstDist.SelectedIndex < lstDist.Items.Count)
             {
                 btnDistAdd.Visible = true;
                 btnDistEdit.Visible = true;
-                btnDistDelete.Visible = true;
-                txtDistrict.Visible = true;
+                
             }
 
             lstHood.Items.Clear();
@@ -142,10 +157,15 @@ namespace AirBnBDatabase
 
         private void lstHood_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            //Using a datagrid view for the properties field//
+
             dgdProp.Rows.Clear();
             dgdProp.Columns.Clear();
             dgdProp.Columns.Add("colPropID", "Property ID");
             dgdProp.Columns.Add("colPropName", "Property Name");
+
+            //Fill the rest of the datagrid window with the property name cell, this way there is no left over space in the DataGrid edges//
             dgdProp.Columns[columnName:"colPropName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgdProp.Columns.Add("colHostID", "ID of Host");
             dgdProp.Columns.Add("colHostName", "Name of Host");
@@ -161,12 +181,14 @@ namespace AirBnBDatabase
             {
                 btnHoodAdd.Visible = true;
                 btnHoodEdit.Visible = true;
-                btnHoodDelete.Visible = true;
                 txtNBHood.Visible = true;
             }
 
+            //using the District array from the selected index for the District listbox, get all the neighbourhoods, and use the selected index from the neighbourhood listbox to get the length of all the properties//
             for (int i = 0; i < Data.AllDist[lstDist.SelectedIndex].getDistAllHood()[lstHood.SelectedIndex].getHoodAllProp().Length; i++)
             {
+
+                //Add rows for all the property information//
                 dgdProp.Rows.Add(
                    Data.AllDist[lstDist.SelectedIndex].getDistAllHood()[lstHood.SelectedIndex].getHoodAllProp()[i].getPropID(),
                    Data.AllDist[lstDist.SelectedIndex].getDistAllHood()[lstHood.SelectedIndex].getHoodAllProp()[i].getPropName(),
@@ -192,17 +214,15 @@ namespace AirBnBDatabase
         }
 
         private string editItem;
-        private int replaceIndex;
-
-
+        private int replaceIndex;       
         private void btnDistEdit_Click(object sender, EventArgs e)
         {
-            
+            txtDistrict.Visible = true;
             if (lstDist.SelectedIndex >=0 && lstDist.SelectedIndex < lstDist.Items.Count)
             {
+               
                 btnDistAdd.Visible = false;
                 btnDistConfirm.Visible = true;
-                btnDistDelete.Visible = false;
                 btnDistEdit.Visible = false;
                 btnDistCancel.Visible = true;
                 editItem = lstDist.Items[lstDist.SelectedIndex].ToString();
@@ -211,7 +231,6 @@ namespace AirBnBDatabase
 
                 btnHoodAdd.Visible = false;
                 btnHoodConfirm.Visible = false;
-                btnHoodDelete.Visible = false;
                 btnHoodEdit.Visible = false;
                 btnHoodCancel.Visible = false;
                 txtNBHood.Visible = false;
@@ -241,7 +260,6 @@ namespace AirBnBDatabase
             }
             btnDistAdd.Visible = true;
             btnDistConfirm.Visible = false;
-            btnDistDelete.Visible = true;
             btnDistEdit.Visible = true;
             btnDistCancel.Visible = false;
         }
@@ -249,10 +267,9 @@ namespace AirBnBDatabase
         private void btnDistCancel_Click_1(object sender, EventArgs e)
         {
             txtDistrict.Clear();
-            btnDistAdd.Visible = false;
+            btnDistAdd.Visible = true;
             btnDistConfirm.Visible = false;
-            btnDistDelete.Visible = false;
-            btnDistEdit.Visible = false;
+            btnDistEdit.Visible = true;
             btnDistCancel.Visible = false;
             txtDistrict.Visible = false;
             
@@ -260,7 +277,27 @@ namespace AirBnBDatabase
 
         private void btnDistAdd_Click(object sender, EventArgs e)
         {
+            btnDistAdd.Visible = false;
+            btnDistConfirm.Visible = false;
+            btnDistEdit.Visible = false;
+            btnDistCancel.Visible = false;
+            replaceIndex = lstDist.SelectedIndex;
+            txtDistrict.Visible = false;
+            btnHoodAdd.Visible = false;
+            btnHoodConfirm.Visible = false;
+            btnHoodEdit.Visible = false;
+            btnHoodCancel.Visible = false;
+            txtNBHood.Visible = false;
 
+            btnAddDisConfirm.Visible = true;
+            btnAddDisCancel.Visible = true;
+            lblAddName.Visible = true;
+            lblAddNumber.Visible = true;
+            txtAddName.Visible = true;
+            txtAddNum.Visible = true;
+
+            lblAddName.Text = "New District Name";
+            lblAddNumber.Text = "Number of Neighbourhoods in this District";
         }
 
         private void btnDistDelete_Click(object sender, EventArgs e)
@@ -280,7 +317,6 @@ namespace AirBnBDatabase
             {
                 btnHoodAdd.Visible = false;
                 btnHoodConfirm.Visible = true;
-                btnHoodDelete.Visible = false;
                 btnHoodEdit.Visible = false;
                 btnHoodCancel.Visible = true;
                 editItem = lstHood.Items[lstHood.SelectedIndex].ToString();
@@ -288,7 +324,6 @@ namespace AirBnBDatabase
                 txtNBHood.Text = editItem;
                 btnDistAdd.Visible = false;
                 btnDistConfirm.Visible = false;
-                btnDistDelete.Visible = false;
                 btnDistEdit.Visible = false;
                 btnDistCancel.Visible = false;
                 txtDistrict.Visible = false;
@@ -320,7 +355,6 @@ namespace AirBnBDatabase
             }
             btnHoodAdd.Visible = true;
             btnHoodConfirm.Visible = false;
-            btnHoodDelete.Visible = true;
             btnHoodEdit.Visible = true;
             btnHoodCancel.Visible = false;
         }
@@ -330,10 +364,91 @@ namespace AirBnBDatabase
             txtNBHood.Clear();
             btnHoodAdd.Visible = false;
             btnHoodConfirm.Visible = false;
-            btnHoodDelete.Visible = false;
             btnHoodEdit.Visible = false;
             btnHoodCancel.Visible = false;
             txtNBHood.Visible = false;
+        }
+
+        private void BtnAddDisConfirm_Click(object sender, EventArgs e)
+        {
+            lblAddName.Visible = false;
+            lblAddNumber.Visible = false;
+            txtAddName.Visible = false;
+            txtAddNum.Visible = false;
+            btnAddDisConfirm.Visible = false;
+            btnAddDisCancel.Visible = false;
+
+
+            if (txtAddName.Text != "" && txtAddNum.Text != "")
+            {
+
+                string tempDistName = txtAddName.Text.ToString();
+                int numDistHoods = Convert.ToInt32(txtAddNum.Text);
+
+
+                District tempDist = new District(tempDistName, numDistHoods);
+                int distArraySize = Data.AllDist.Length;
+                Array.Resize(ref Data.AllDist, distArraySize + 1);
+                Data.AllDist[distArraySize] = tempDist;
+                lstDist.Items.Clear();
+                tempDist.setNumHood(numDistHoods);
+                for (int i = (Data.AllDist.Length - 1); i < Data.AllDist.Length; i++)
+                {
+                    Data.AllDist[distArraySize] = tempDist;
+                }
+                lstDist.Items.Clear();
+
+                for (int i = 0; i < Data.AllDist.Length; i++)
+                {
+                    lstDist.Items.Add(Data.AllDist[i].getInDistName());
+                }
+
+
+                for (int i = (tempDist.getNumHood()) - 1; i < tempDist.getNumHood(); i++)
+                {
+                    lstHood.Items.Add(tempDist.getNumHood());
+                }
+
+                lstDist.ClearSelected();
+                lstDist.Refresh();
+            }
+            else
+            {
+                MessageBox.Show("Please enter in the relevant information into the Textboxes", "One or more field missing!", MessageBoxButtons.OK);
+                lblAddName.Visible = true;
+                lblAddNumber.Visible = true;
+                txtAddName.Visible = true;
+                txtAddNum.Visible = true;
+                btnAddDisConfirm.Visible = true;
+                btnAddDisCancel.Visible = true;
+
+            }
+        }
+
+        private void BtnAddDisCancel_Click(object sender, EventArgs e)
+        {
+            txtDistrict.Clear();
+            btnDistAdd.Visible = true;
+            btnDistConfirm.Visible = false;
+            btnDistEdit.Visible = true;
+            btnDistCancel.Visible = false;
+            txtDistrict.Visible = false;
+            btnAddDisConfirm.Visible = false;
+            btnAddDisCancel.Visible = false;
+            lblAddName.Visible = false;
+            lblAddNumber.Visible = false;
+            txtAddName.Visible = false;
+            txtAddNum.Visible = false;
+        }
+
+        private void BtnAddHoodConfirm_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnAddHoodCancel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
