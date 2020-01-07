@@ -37,7 +37,6 @@
             this.txtNBHood = new System.Windows.Forms.TextBox();
             this.lstDist = new System.Windows.Forms.ListBox();
             this.lstHood = new System.Windows.Forms.ListBox();
-            this.dgdProp = new System.Windows.Forms.DataGridView();
             this.getFile = new System.Windows.Forms.OpenFileDialog();
             this.btnDistEdit = new System.Windows.Forms.Button();
             this.btnDistAdd = new System.Windows.Forms.Button();
@@ -55,6 +54,35 @@
             this.txtAddNum = new System.Windows.Forms.TextBox();
             this.lblAddName = new System.Windows.Forms.Label();
             this.lblAddNumber = new System.Windows.Forms.Label();
+            this.btnAddProperty = new System.Windows.Forms.Button();
+            this.btnEditProperty = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtPropID = new System.Windows.Forms.TextBox();
+            this.dgdProp = new System.Windows.Forms.DataGridView();
+            this.btnAddPropConfirm = new System.Windows.Forms.Button();
+            this.btnAddPropCancel = new System.Windows.Forms.Button();
+            this.txtAvailable = new System.Windows.Forms.TextBox();
+            this.txtMinNight = new System.Windows.Forms.TextBox();
+            this.txtPrice = new System.Windows.Forms.TextBox();
+            this.txtRoomType = new System.Windows.Forms.TextBox();
+            this.txtLongitude = new System.Windows.Forms.TextBox();
+            this.txtLattitude = new System.Windows.Forms.TextBox();
+            this.txtNumListProp = new System.Windows.Forms.TextBox();
+            this.txtHostName = new System.Windows.Forms.TextBox();
+            this.txtHostID = new System.Windows.Forms.TextBox();
+            this.txtPropName = new System.Windows.Forms.TextBox();
+            this.btnEditPropConfirm = new System.Windows.Forms.Button();
+            this.lblPropID = new System.Windows.Forms.Label();
+            this.lblPropName = new System.Windows.Forms.Label();
+            this.lblHostID = new System.Windows.Forms.Label();
+            this.lblHostName = new System.Windows.Forms.Label();
+            this.lblNumListProp = new System.Windows.Forms.Label();
+            this.lblLattitude = new System.Windows.Forms.Label();
+            this.lblLongitude = new System.Windows.Forms.Label();
+            this.lblRoomType = new System.Windows.Forms.Label();
+            this.lblPrice = new System.Windows.Forms.Label();
+            this.lblMinNight = new System.Windows.Forms.Label();
+            this.lblPropAvailable = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -144,14 +172,6 @@
             this.lstHood.TabIndex = 12;
             this.lstHood.SelectedIndexChanged += new System.EventHandler(this.lstHood_SelectedIndexChanged);
             // 
-            // dgdProp
-            // 
-            this.dgdProp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgdProp.Location = new System.Drawing.Point(216, 411);
-            this.dgdProp.Name = "dgdProp";
-            this.dgdProp.Size = new System.Drawing.Size(1601, 483);
-            this.dgdProp.TabIndex = 13;
-            // 
             // getFile
             // 
             this.getFile.FileName = "getFile";
@@ -178,7 +198,7 @@
             // 
             // btnDistConfirm
             // 
-            this.btnDistConfirm.Location = new System.Drawing.Point(821, 164);
+            this.btnDistConfirm.Location = new System.Drawing.Point(821, 113);
             this.btnDistConfirm.Name = "btnDistConfirm";
             this.btnDistConfirm.Size = new System.Drawing.Size(109, 40);
             this.btnDistConfirm.TabIndex = 18;
@@ -188,7 +208,7 @@
             // 
             // btnDistCancel
             // 
-            this.btnDistCancel.Location = new System.Drawing.Point(1051, 159);
+            this.btnDistCancel.Location = new System.Drawing.Point(1051, 113);
             this.btnDistCancel.Name = "btnDistCancel";
             this.btnDistCancel.Size = new System.Drawing.Size(109, 40);
             this.btnDistCancel.TabIndex = 19;
@@ -198,7 +218,7 @@
             // 
             // btnHoodCancel
             // 
-            this.btnHoodCancel.Location = new System.Drawing.Point(1051, 282);
+            this.btnHoodCancel.Location = new System.Drawing.Point(1051, 236);
             this.btnHoodCancel.Name = "btnHoodCancel";
             this.btnHoodCancel.Size = new System.Drawing.Size(109, 40);
             this.btnHoodCancel.TabIndex = 24;
@@ -208,7 +228,7 @@
             // 
             // btnHoodConfirm
             // 
-            this.btnHoodConfirm.Location = new System.Drawing.Point(821, 282);
+            this.btnHoodConfirm.Location = new System.Drawing.Point(821, 236);
             this.btnHoodConfirm.Name = "btnHoodConfirm";
             this.btnHoodConfirm.Size = new System.Drawing.Size(109, 40);
             this.btnHoodConfirm.TabIndex = 23;
@@ -308,9 +328,282 @@
             this.lblAddNumber.TabIndex = 32;
             this.lblAddNumber.Text = "lblAddNumber";
             // 
+            // btnAddProperty
+            // 
+            this.btnAddProperty.Location = new System.Drawing.Point(1236, 427);
+            this.btnAddProperty.Name = "btnAddProperty";
+            this.btnAddProperty.Size = new System.Drawing.Size(109, 40);
+            this.btnAddProperty.TabIndex = 33;
+            this.btnAddProperty.Text = "Add";
+            this.btnAddProperty.UseVisualStyleBackColor = true;
+            this.btnAddProperty.Click += new System.EventHandler(this.BtnAddProperty_Click);
+            // 
+            // btnEditProperty
+            // 
+            this.btnEditProperty.Location = new System.Drawing.Point(1365, 427);
+            this.btnEditProperty.Name = "btnEditProperty";
+            this.btnEditProperty.Size = new System.Drawing.Size(109, 40);
+            this.btnEditProperty.TabIndex = 34;
+            this.btnEditProperty.Text = "Edit";
+            this.btnEditProperty.UseVisualStyleBackColor = true;
+            this.btnEditProperty.Click += new System.EventHandler(this.BtnEditProperty_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(782, 454);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 13);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "Put me on the bottom";
+            // 
+            // txtPropID
+            // 
+            this.txtPropID.Location = new System.Drawing.Point(1328, 506);
+            this.txtPropID.Name = "txtPropID";
+            this.txtPropID.Size = new System.Drawing.Size(261, 20);
+            this.txtPropID.TabIndex = 38;
+            // 
+            // dgdProp
+            // 
+            this.dgdProp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgdProp.Location = new System.Drawing.Point(216, 431);
+            this.dgdProp.Name = "dgdProp";
+            this.dgdProp.Size = new System.Drawing.Size(847, 518);
+            this.dgdProp.TabIndex = 51;
+            this.dgdProp.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgdProp_CellContentClick);
+            // 
+            // btnAddPropConfirm
+            // 
+            this.btnAddPropConfirm.Location = new System.Drawing.Point(1517, 427);
+            this.btnAddPropConfirm.Name = "btnAddPropConfirm";
+            this.btnAddPropConfirm.Size = new System.Drawing.Size(109, 40);
+            this.btnAddPropConfirm.TabIndex = 52;
+            this.btnAddPropConfirm.Text = "Save Addition";
+            this.btnAddPropConfirm.UseVisualStyleBackColor = true;
+            this.btnAddPropConfirm.Click += new System.EventHandler(this.BtnAddPropConfirm_Click);
+            // 
+            // btnAddPropCancel
+            // 
+            this.btnAddPropCancel.Location = new System.Drawing.Point(1646, 427);
+            this.btnAddPropCancel.Name = "btnAddPropCancel";
+            this.btnAddPropCancel.Size = new System.Drawing.Size(109, 40);
+            this.btnAddPropCancel.TabIndex = 53;
+            this.btnAddPropCancel.Text = "Cancel";
+            this.btnAddPropCancel.UseVisualStyleBackColor = true;
+            this.btnAddPropCancel.Click += new System.EventHandler(this.BtnAddPropCancel_Click);
+            // 
+            // txtAvailable
+            // 
+            this.txtAvailable.Location = new System.Drawing.Point(1328, 879);
+            this.txtAvailable.Name = "txtAvailable";
+            this.txtAvailable.Size = new System.Drawing.Size(261, 20);
+            this.txtAvailable.TabIndex = 54;
+            // 
+            // txtMinNight
+            // 
+            this.txtMinNight.Location = new System.Drawing.Point(1328, 842);
+            this.txtMinNight.Name = "txtMinNight";
+            this.txtMinNight.Size = new System.Drawing.Size(261, 20);
+            this.txtMinNight.TabIndex = 55;
+            // 
+            // txtPrice
+            // 
+            this.txtPrice.Location = new System.Drawing.Point(1328, 803);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(261, 20);
+            this.txtPrice.TabIndex = 56;
+            // 
+            // txtRoomType
+            // 
+            this.txtRoomType.Location = new System.Drawing.Point(1328, 763);
+            this.txtRoomType.Name = "txtRoomType";
+            this.txtRoomType.Size = new System.Drawing.Size(261, 20);
+            this.txtRoomType.TabIndex = 57;
+            // 
+            // txtLongitude
+            // 
+            this.txtLongitude.Location = new System.Drawing.Point(1328, 725);
+            this.txtLongitude.Name = "txtLongitude";
+            this.txtLongitude.Size = new System.Drawing.Size(261, 20);
+            this.txtLongitude.TabIndex = 58;
+            // 
+            // txtLattitude
+            // 
+            this.txtLattitude.Location = new System.Drawing.Point(1328, 688);
+            this.txtLattitude.Name = "txtLattitude";
+            this.txtLattitude.Size = new System.Drawing.Size(261, 20);
+            this.txtLattitude.TabIndex = 59;
+            // 
+            // txtNumListProp
+            // 
+            this.txtNumListProp.Location = new System.Drawing.Point(1328, 652);
+            this.txtNumListProp.Name = "txtNumListProp";
+            this.txtNumListProp.Size = new System.Drawing.Size(261, 20);
+            this.txtNumListProp.TabIndex = 60;
+            // 
+            // txtHostName
+            // 
+            this.txtHostName.Location = new System.Drawing.Point(1328, 617);
+            this.txtHostName.Name = "txtHostName";
+            this.txtHostName.Size = new System.Drawing.Size(261, 20);
+            this.txtHostName.TabIndex = 61;
+            // 
+            // txtHostID
+            // 
+            this.txtHostID.Location = new System.Drawing.Point(1328, 579);
+            this.txtHostID.Name = "txtHostID";
+            this.txtHostID.Size = new System.Drawing.Size(261, 20);
+            this.txtHostID.TabIndex = 62;
+            // 
+            // txtPropName
+            // 
+            this.txtPropName.Location = new System.Drawing.Point(1328, 541);
+            this.txtPropName.Name = "txtPropName";
+            this.txtPropName.Size = new System.Drawing.Size(261, 20);
+            this.txtPropName.TabIndex = 63;
+            // 
+            // btnEditPropConfirm
+            // 
+            this.btnEditPropConfirm.Location = new System.Drawing.Point(1517, 427);
+            this.btnEditPropConfirm.Name = "btnEditPropConfirm";
+            this.btnEditPropConfirm.Size = new System.Drawing.Size(109, 40);
+            this.btnEditPropConfirm.TabIndex = 64;
+            this.btnEditPropConfirm.Text = "Save Edit";
+            this.btnEditPropConfirm.UseVisualStyleBackColor = true;
+            this.btnEditPropConfirm.Click += new System.EventHandler(this.BtnEditPropConfirm_Click);
+            // 
+            // lblPropID
+            // 
+            this.lblPropID.AutoSize = true;
+            this.lblPropID.Location = new System.Drawing.Point(1179, 506);
+            this.lblPropID.Name = "lblPropID";
+            this.lblPropID.Size = new System.Drawing.Size(60, 13);
+            this.lblPropID.TabIndex = 65;
+            this.lblPropID.Text = "Property ID";
+            // 
+            // lblPropName
+            // 
+            this.lblPropName.AutoSize = true;
+            this.lblPropName.Location = new System.Drawing.Point(1179, 548);
+            this.lblPropName.Name = "lblPropName";
+            this.lblPropName.Size = new System.Drawing.Size(77, 13);
+            this.lblPropName.TabIndex = 66;
+            this.lblPropName.Text = "Property Name";
+            // 
+            // lblHostID
+            // 
+            this.lblHostID.AutoSize = true;
+            this.lblHostID.Location = new System.Drawing.Point(1179, 586);
+            this.lblHostID.Name = "lblHostID";
+            this.lblHostID.Size = new System.Drawing.Size(43, 13);
+            this.lblHostID.TabIndex = 67;
+            this.lblHostID.Text = "Host ID";
+            // 
+            // lblHostName
+            // 
+            this.lblHostName.AutoSize = true;
+            this.lblHostName.Location = new System.Drawing.Point(1179, 617);
+            this.lblHostName.Name = "lblHostName";
+            this.lblHostName.Size = new System.Drawing.Size(60, 13);
+            this.lblHostName.TabIndex = 68;
+            this.lblHostName.Text = "Host Name";
+            // 
+            // lblNumListProp
+            // 
+            this.lblNumListProp.AutoSize = true;
+            this.lblNumListProp.Location = new System.Drawing.Point(1179, 653);
+            this.lblNumListProp.Name = "lblNumListProp";
+            this.lblNumListProp.Size = new System.Drawing.Size(133, 13);
+            this.lblNumListProp.TabIndex = 69;
+            this.lblNumListProp.Text = "Number of listed Properties";
+            // 
+            // lblLattitude
+            // 
+            this.lblLattitude.AutoSize = true;
+            this.lblLattitude.Location = new System.Drawing.Point(1179, 690);
+            this.lblLattitude.Name = "lblLattitude";
+            this.lblLattitude.Size = new System.Drawing.Size(48, 13);
+            this.lblLattitude.TabIndex = 70;
+            this.lblLattitude.Text = "Lattitude";
+            // 
+            // lblLongitude
+            // 
+            this.lblLongitude.AutoSize = true;
+            this.lblLongitude.Location = new System.Drawing.Point(1179, 728);
+            this.lblLongitude.Name = "lblLongitude";
+            this.lblLongitude.Size = new System.Drawing.Size(54, 13);
+            this.lblLongitude.TabIndex = 71;
+            this.lblLongitude.Text = "Longitude";
+            // 
+            // lblRoomType
+            // 
+            this.lblRoomType.AutoSize = true;
+            this.lblRoomType.Location = new System.Drawing.Point(1179, 768);
+            this.lblRoomType.Name = "lblRoomType";
+            this.lblRoomType.Size = new System.Drawing.Size(74, 13);
+            this.lblRoomType.TabIndex = 72;
+            this.lblRoomType.Text = "Type of Room";
+            // 
+            // lblPrice
+            // 
+            this.lblPrice.AutoSize = true;
+            this.lblPrice.Location = new System.Drawing.Point(1179, 807);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(31, 13);
+            this.lblPrice.TabIndex = 73;
+            this.lblPrice.Text = "Price";
+            // 
+            // lblMinNight
+            // 
+            this.lblMinNight.AutoSize = true;
+            this.lblMinNight.Location = new System.Drawing.Point(1179, 851);
+            this.lblMinNight.Name = "lblMinNight";
+            this.lblMinNight.Size = new System.Drawing.Size(133, 13);
+            this.lblMinNight.TabIndex = 74;
+            this.lblMinNight.Text = "Minimum Number of Nights";
+            // 
+            // lblPropAvailable
+            // 
+            this.lblPropAvailable.AutoSize = true;
+            this.lblPropAvailable.Location = new System.Drawing.Point(1179, 879);
+            this.lblPropAvailable.Name = "lblPropAvailable";
+            this.lblPropAvailable.Size = new System.Drawing.Size(142, 13);
+            this.lblPropAvailable.TabIndex = 75;
+            this.lblPropAvailable.Text = "Property Availability (in Days)";
+            // 
             // frmAirBnBMenu
             // 
             this.ClientSize = new System.Drawing.Size(1847, 1006);
+            this.Controls.Add(this.lblPropAvailable);
+            this.Controls.Add(this.lblMinNight);
+            this.Controls.Add(this.lblPrice);
+            this.Controls.Add(this.lblRoomType);
+            this.Controls.Add(this.lblLongitude);
+            this.Controls.Add(this.lblLattitude);
+            this.Controls.Add(this.lblNumListProp);
+            this.Controls.Add(this.lblHostName);
+            this.Controls.Add(this.lblHostID);
+            this.Controls.Add(this.lblPropName);
+            this.Controls.Add(this.lblPropID);
+            this.Controls.Add(this.btnEditPropConfirm);
+            this.Controls.Add(this.txtPropName);
+            this.Controls.Add(this.txtHostID);
+            this.Controls.Add(this.txtHostName);
+            this.Controls.Add(this.txtNumListProp);
+            this.Controls.Add(this.txtLattitude);
+            this.Controls.Add(this.txtLongitude);
+            this.Controls.Add(this.txtRoomType);
+            this.Controls.Add(this.txtPrice);
+            this.Controls.Add(this.txtMinNight);
+            this.Controls.Add(this.txtAvailable);
+            this.Controls.Add(this.btnAddPropCancel);
+            this.Controls.Add(this.btnAddPropConfirm);
+            this.Controls.Add(this.dgdProp);
+            this.Controls.Add(this.txtPropID);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnEditProperty);
+            this.Controls.Add(this.btnAddProperty);
             this.Controls.Add(this.lblAddNumber);
             this.Controls.Add(this.lblAddName);
             this.Controls.Add(this.txtAddNum);
@@ -327,7 +620,6 @@
             this.Controls.Add(this.btnDistConfirm);
             this.Controls.Add(this.btnDistAdd);
             this.Controls.Add(this.btnDistEdit);
-            this.Controls.Add(this.dgdProp);
             this.Controls.Add(this.lstHood);
             this.Controls.Add(this.lstDist);
             this.Controls.Add(this.txtNBHood);
@@ -359,7 +651,6 @@
         private System.Windows.Forms.TextBox txtNBHood;
         private System.Windows.Forms.ListBox lstDist;
         private System.Windows.Forms.ListBox lstHood;
-        private System.Windows.Forms.DataGridView dgdProp;
         private System.Windows.Forms.OpenFileDialog getFile;
         private System.Windows.Forms.Button btnDistEdit;
         private System.Windows.Forms.Button btnDistAdd;
@@ -377,6 +668,35 @@
         private System.Windows.Forms.TextBox txtAddNum;
         private System.Windows.Forms.Label lblAddName;
         private System.Windows.Forms.Label lblAddNumber;
+        private System.Windows.Forms.Button btnAddProperty;
+        private System.Windows.Forms.Button btnEditProperty;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtPropID;
+        private System.Windows.Forms.DataGridView dgdProp;
+        private System.Windows.Forms.Button btnAddPropConfirm;
+        private System.Windows.Forms.Button btnAddPropCancel;
+        private System.Windows.Forms.TextBox txtAvailable;
+        private System.Windows.Forms.TextBox txtMinNight;
+        private System.Windows.Forms.TextBox txtPrice;
+        private System.Windows.Forms.TextBox txtRoomType;
+        private System.Windows.Forms.TextBox txtLongitude;
+        private System.Windows.Forms.TextBox txtLattitude;
+        private System.Windows.Forms.TextBox txtNumListProp;
+        private System.Windows.Forms.TextBox txtHostName;
+        private System.Windows.Forms.TextBox txtHostID;
+        private System.Windows.Forms.TextBox txtPropName;
+        private System.Windows.Forms.Button btnEditPropConfirm;
+        private System.Windows.Forms.Label lblPropID;
+        private System.Windows.Forms.Label lblPropName;
+        private System.Windows.Forms.Label lblHostID;
+        private System.Windows.Forms.Label lblHostName;
+        private System.Windows.Forms.Label lblNumListProp;
+        private System.Windows.Forms.Label lblLattitude;
+        private System.Windows.Forms.Label lblLongitude;
+        private System.Windows.Forms.Label lblRoomType;
+        private System.Windows.Forms.Label lblPrice;
+        private System.Windows.Forms.Label lblMinNight;
+        private System.Windows.Forms.Label lblPropAvailable;
     }
 }
 

@@ -28,6 +28,10 @@ namespace AirBnBDatabase
            
         }
 
+        public Neighbourhood(string inHoodName)
+        {
+            nHoodName = inHoodName;
+        }
 
         // Getters //
 
@@ -66,9 +70,20 @@ namespace AirBnBDatabase
             }
         }
 
-        public void setHoodAllProp (Property[] theAllProp)
+        public void setHoodAllProp (Property theAllProp, int theNumProp)
+        {
+            hoodAllProp[theNumProp] = theAllProp;
+        }
+        public void setHoodAllProp(Property[] theAllProp)
         {
             hoodAllProp = theAllProp;
         }
+
+        public void addProp(Property inProp)
+        {
+            Array.Resize(ref hoodAllProp, hoodAllProp.Length + 1);
+            hoodAllProp[hoodAllProp.Length - 1] = inProp;
+        }
+
     }
 }
